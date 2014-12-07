@@ -1,5 +1,16 @@
 LOCAL_PATH := vendor/lge/p715
 
+# WLAN
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/system/lib/modules/volans/WCN1314_rf.ko:/system/lib/modules/volans/WCN1314_rf.ko \
+	$(LOCAL_PATH)/system/lib/modules/volans/cfg80211.ko:/system/lib/modules/volans/cfg80211.ko 
+
+# FM
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/system/bin/fmconfig:system/bin/fmconfig \
+	$(LOCAL_PATH)/system/bin/fm_qsoc_patches:system/bin/fm_qsoc_patches \
+	$(LOCAL_PATH)/system/bin/ftmdaemon:system/bin/ftmdaemon
+
 # bin
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/system/bin/rmt_oeminfo:system/bin/rmt_oeminfo \
@@ -69,19 +80,16 @@ PRODUCT_COPY_FILES += \
 
 # Lib
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/system/lib/modules/cfg80211.ko:/system/lib/modules/cfg80211.ko \
-	$(LOCAL_PATH)/system/lib/modules/wlan.ko:/system/lib/modules/wlan.ko \
-	$(LOCAL_PATH)/system/lib/modules/librasdioif.ko:/system/lib/modules/librasdioif.ko \
 	$(LOCAL_PATH)/system/lib/egl/eglsubAndroid.so:/system/lib/egl/eglsubAndroid.so \
 	$(LOCAL_PATH)/system/lib/egl/libEGL_adreno200.so:/system/lib/egl/libEGL_adreno200.so \
 	$(LOCAL_PATH)/system/lib/egl/libGLES_android.so:/system/lib/egl/libGLES_android.so \
 	$(LOCAL_PATH)/system/lib/egl/libGLESv1_CM_adreno200.so:/system/lib/egl/libGLESv1_CM_adreno200.so \
 	$(LOCAL_PATH)/system/lib/egl/libGLESv2_adreno200.so:/system/lib/egl/libGLESv2_adreno200.so \
 	$(LOCAL_PATH)/system/lib/egl/libq3dtools_adreno200.so:/system/lib/egl/libq3dtools_adreno200.so \
-	$(LOCAL_PATH)/system/lib/hw/camera.msm7x27a.so:/system/lib/hw/camera.msm7x27a.so \
 	$(LOCAL_PATH)/system/lib/hw/sensors.default.so:/system/lib/hw/sensors.default.so \
 	$(LOCAL_PATH)/system/lib/libchromatix_imx111_default_video.so:/system/lib/libchromatix_imx111_default_video.so \
-	$(LOCAL_PATH)/system/lib/hw/power.msm7x27a.so:/system/lib/hw/power.msm7x27a.so \
+	$(LOCAL_PATH)/system/lib/hw/camera.msm7x27a.so:/system/lib/hw/camera.msm7x27a.so \
+	$(LOCAL_PATH)/system/lib/hw/nfc.msm7x27a.so:/system/lib/hw/nfc.msm7x27a.so \
 	$(LOCAL_PATH)/system/lib/libchromatix_imx111_preview.so:/system/lib/libchromatix_imx111_preview.so \
 	$(LOCAL_PATH)/system/lib/libchromatix_imx111_zsl.so:/system/lib/libchromatix_imx111_zsl.so \
 	$(LOCAL_PATH)/system/lib/libchromatix_imx219_default_video.so:/system/lib/libchromatix_imx219_default_video.so \
@@ -92,8 +100,8 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/system/lib/libmmcamera_frameproc.so:/system/lib/libmmcamera_frameproc.so \
 	$(LOCAL_PATH)/system/lib/libmmcamera_hdr_lib.so:/system/lib/libmmcamera_hdr_lib.so \
 	$(LOCAL_PATH)/system/lib/libmmcamera_image_stab.so:/system/lib/libmmcamera_image_stab.so \
-	$(LOCAL_PATH)/system/lib/libmmcamera_interface2.so:/system/lib/libmmcamera_interface2.so \
 	$(LOCAL_PATH)/system/lib/libmmcamera_statsproc31.so:/system/lib/libmmcamera_statsproc31.so \
+	$(LOCAL_PATH)/system/lib/libmmcamera_interface2.so:/system/lib/libmmcamera_interface2.so \
 	$(LOCAL_PATH)/system/lib/libmmjpeg.so:/system/lib/libmmjpeg.so \
 	$(LOCAL_PATH)/system/lib/libmmcamera_wavelet_lib.so:/system/lib/libmmcamera_wavelet_lib.so \
 	$(LOCAL_PATH)/system/lib/libmorpho_memory_allocator.so:/system/lib/libmorpho_memory_allocator.so \
@@ -131,7 +139,6 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/system/lib/libOmxWmvDec.so:/system/lib/libOmxWmvDec.so \
 	$(LOCAL_PATH)/system/lib/libomx_amrdec_sharedlibrary.so:/system/lib/libomx_amrdec_sharedlibrary.so \
 	$(LOCAL_PATH)/system/lib/libomx_amrenc_sharedlibrary.so:/system/lib/libomx_amrenc_sharedlibrary.so \
-	$(LOCAL_PATH)/system/lib/libOmxCore.so:/system/lib/libOmxCore.so \
 	$(LOCAL_PATH)/system/lib/libomx_sharedlibrary.so:/system/lib/libomx_sharedlibrary.so \
 	$(LOCAL_PATH)/system/lib/libOmxVdec.so:/system/lib/libOmxVdec.so \
 	$(LOCAL_PATH)/system/lib/libOmxVenc.so:/system/lib/libOmxVenc.so \
@@ -204,12 +211,6 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/system/lib/qnet-plugin.so:/system/lib/qnet-plugin.so \
 	$(LOCAL_PATH)/system/lib/libwidevine.so:/system/lib/libwidevine.so 
 	
-
-
-# Framework
-PRODUCT_COPY_FILES += \
-       	$(LOCAL_PATH)/system/framework/com.lge.wifi.jar:/system/framework/com.lge.wifi.jar
-
 # USR
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/system/usr/keylayout/7k_handset.kl:/system/usr/keylayout/7k_handset.kl \
@@ -242,5 +243,6 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/system/lib/libdualsimswitch.so:/system/lib/libdualsimswitch.so \
 	$(LOCAL_PATH)/system/lib/libqc-opt.so:/system/lib/libqc-opt.so \
 	$(LOCAL_PATH)/system/lib/libreference-ril.so:/system/lib/libreference-ril.so \
-	$(LOCAL_PATH)/system/lib/libwcnftm.so:/system/lib/libwcnftm.so 
+	$(LOCAL_PATH)/system/lib/libwcnftm.so:/system/lib/libwcnftm.so \
+	$(LOCAL_PATH)/system/lib/libcm.so:/system/lib/libcm.so 
 
