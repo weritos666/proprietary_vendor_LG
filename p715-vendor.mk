@@ -1,9 +1,27 @@
 LOCAL_PATH := vendor/lge/p715
 
+# Camera
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/system/lib/libcamera_client.so:/system/lib/libcamera_client.so \
+	$(LOCAL_PATH)/system/lib/libcamera_metadata.so:/system/lib/libcamera_metadata.so \
+	$(LOCAL_PATH)/system/lib/libcameraservice.so:/system/lib/libcameraservice.so 
+
+# Color and others libs
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/system/lib/libcommondefs.so:/system/lib/libcommondefs.so \
+	$(LOCAL_PATH)/system/lib/libgps.utils.so:/system/lib/libgps.utils.so \
+	$(LOCAL_PATH)/system/lib/libmm-color-convertor.so:/system/lib/libmm-color-convertor.so \
+	$(LOCAL_PATH)/system/lib/libnl_2.so:/system/lib/libnl_2.so \
+	$(LOCAL_PATH)/system/lib/liboeminfo.so:/system/lib/liboeminfo.so 
+
 # WLAN
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/system/lib/modules/volans/WCN1314_rf.ko:/system/lib/modules/volans/WCN1314_rf.ko \
-	$(LOCAL_PATH)/system/lib/modules/volans/cfg80211.ko:/system/lib/modules/volans/cfg80211.ko 
+    $(LOCAL_PATH)/system/etc/firmware/wlan/volans/WCN1314_cfg.dat:system/etc/firmware/wlan/volans/WCN1314_cfg.dat \
+    $(LOCAL_PATH)/system/etc/firmware/wlan/volans/WCN1314_qcom_wlan_nv.bin:system/etc/firmware/wlan/volans/WCN1314_qcom_wlan_nv.bin \
+    $(LOCAL_PATH)/system/etc/firmware/wlan/volans/WCN1314_qcom_fw.bin:system/etc/firmware/wlan/volans/WCN1314_qcom_fw.bin \
+    $(LOCAL_PATH)/system/etc/firmware/wlan/volans/WCN1314_qcom_cfg.ini:system/etc/firmware/wlan/volans/WCN1314_qcom_cfg.ini \
+   $(LOCAL_PATH)/system/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
+   $(LOCAL_PATH)/system/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw 
 
 # FM
 PRODUCT_COPY_FILES += \
@@ -72,10 +90,6 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/system/etc/bluetooth/auto_pair_devlist.conf:system/etc/bluetooth/auto_pair_devlist.conf \
 	$(LOCAL_PATH)/system/etc/bluetooth/bt_did.conf:system/etc/bluetooth/bt_did.conf  \
 	$(LOCAL_PATH)/system/etc/bluetooth/bt_stack.conf:system/etc/bluetooth/bt_stack.conf  \
-	$(LOCAL_PATH)/system/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
-	$(LOCAL_PATH)/system/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw \
-	$(LOCAL_PATH)/system/etc/firmware/wlan/volans/WCN1314_cfg.dat:system/etc/firmware/wlan/volans/WCN1314_cfg.dat \
-	$(LOCAL_PATH)/system/etc/firmware/wlan/volans/WCN1314_qcom_fw.bin:system/etc/firmware/wlan/volans/WCN1314_qcom_fw.bin \
 	$(LOCAL_PATH)/system/etc/vold.fstab:system/etc/vold.fstab
 
 # Lib
@@ -110,7 +124,6 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/system/lib/libmorpho_panorama_wa_viewer.so:/system/lib/libmorpho_panorama_wa_viewer.so \
 	$(LOCAL_PATH)/system/lib/liboemcamera.so:/system/lib/liboemcamera.so \
 	$(LOCAL_PATH)/system/lib/libOlaLGECameraJNI_4.so:/system/lib/libOlaLGECameraJNI_4.so \
-	$(LOCAL_PATH)/system/lib/libOpenVG.so:/system/lib/libOpenVG.so \
 	$(LOCAL_PATH)/system/lib/libsc-a2xx.so:/system/lib/libsc-a2xx.so \
         $(LOCAL_PATH)/system/lib/libOmxAacDec.so:/system/lib/libOmxAacDec.so \
 	$(LOCAL_PATH)/system/lib/libOmxAacEnc.so:/system/lib/libOmxAacEnc.so \
@@ -142,7 +155,6 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/system/lib/libomx_sharedlibrary.so:/system/lib/libomx_sharedlibrary.so \
 	$(LOCAL_PATH)/system/lib/libOmxVdec.so:/system/lib/libOmxVdec.so \
 	$(LOCAL_PATH)/system/lib/libOmxVenc.so:/system/lib/libOmxVenc.so \
-	$(LOCAL_PATH)/system/lib/libC2D2.so:/system/lib/libC2D2.so \
 	$(LOCAL_PATH)/system/lib/libI420colorconvert.so:/system/lib/libI420colorconvert.so \
 	$(LOCAL_PATH)/system/lib/libimage-jpeg-enc-omx-comp.so:/system/lib/libimage-jpeg-enc-omx-comp.so \
 	$(LOCAL_PATH)/system/lib/libimage-omx-common.so:/system/lib/libimage-omx-common.so \
