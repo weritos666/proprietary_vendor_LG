@@ -1,11 +1,5 @@
 LOCAL_PATH := vendor/lge/p715
 
-# Camera
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/system/lib/libcamera_client.so:/system/lib/libcamera_client.so \
-	$(LOCAL_PATH)/system/lib/libcamera_metadata.so:/system/lib/libcamera_metadata.so \
-	$(LOCAL_PATH)/system/lib/libcameraservice.so:/system/lib/libcameraservice.so 
-
 # Color and others libs
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/system/lib/libcommondefs.so:/system/lib/libcommondefs.so \
